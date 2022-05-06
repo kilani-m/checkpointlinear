@@ -1,0 +1,27 @@
+ALGORITHM solution2
+VAR
+  tab1 : ARRAY_OF INTEGER[20];
+  tab2 : ARRAY_OF INTEGER[30];
+  i,j,sum : INTEGER
+BEGIN
+read(tab1)
+read(tab2)
+sum :=0
+FOR i FROM 0 TO tab1.length-1 STEP 1  DO
+  WHILE (tab1[i] <> tab2[j] and j<tab2.length) DO
+      j++
+  END_WHILE
+        IF (j=tab2.length) THEN
+           sum=sum+tab1[i]
+        END_IF
+END_FOR
+FOR i FROM 0 TO tab2.length-1 STEP 1  DO
+  WHILE (tab2[i] <> tab1[j] and j<tab1.length) DO
+      j++
+  END_WHILE
+        IF (j=tab1.length) THEN
+           sum=sum+tab2[i]
+        END_IF
+END_FOR
+
+END
